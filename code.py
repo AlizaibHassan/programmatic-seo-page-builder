@@ -46,7 +46,7 @@ def main():
         modified_content = replace_city_in_article(article_content, city_name)
 
         # Set a title for the WordPress post
-        post_title = f"Cleaning Services in {city_name}"
+        post_title = f"Best SEO Services In {city_name} FL"
 
         # Publish the post to WordPress
         publish_to_wordpress(post_title, modified_content)
