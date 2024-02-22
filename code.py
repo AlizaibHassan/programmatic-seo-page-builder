@@ -1,5 +1,5 @@
-from wordpress_xmlrpc import Client, WordPressPost
-from wordpress_xmlrpc.methods.posts import NewPost
+from wordpress_xmlrpc import Client, WordPressPage  # Import WordPressPage
+from wordpress_xmlrpc.methods.posts import NewPost  # Use NewPost for both posts and pages
 
 def read_csv(file_path):
     city_list = []
@@ -23,13 +23,13 @@ def publish_to_wordpress(title, content):
 
     client = Client(site_url, username, password)
 
-    post = WordPressPost()
-    post.title = title
-    post.content = content
-    post.post_status = 'publish'
+    page = WordPressPage()  # Create a WordPressPage object
+    page.title = title
+    page.content = content
+    page.post_status = 'publish'
 
-    post_id = client.call(NewPost(post))
-    print(f"Post published with ID: {post_id}")
+    page_id = client.call(NewPost(page))  # Use NewPost with a WordPressPage object to publish a page
+    print(f"Page published with ID: {page_id}")
 
 def main():
     # Read the input article content from input.txt
